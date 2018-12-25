@@ -10,6 +10,12 @@ def oneEditAway(s1, s2):
 
     return False
 
+def oneEditAway(s1, s2):
+    if len(s1) == len(s2):
+        return oneEditReplace(s1, s2)
+    elif abs(len(s1) - len(s2)) > 1:
+        return oneEditInsert(s1, s2)
+
 def oneEditReplace(s1, s2):
     foundDifference = False
 
@@ -37,7 +43,7 @@ def oneEditInsert(s1, s2):
     return True
 
 def oneEditAwayUp(s1, s2):
-    if abs(len(s1) - len(s2) > 1):
+    if abs(len(s1) - len(s2)) > 1:
         return False
 
     s1 = s1 if len(s1) < len(s2) else s2
