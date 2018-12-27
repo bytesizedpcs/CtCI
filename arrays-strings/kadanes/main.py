@@ -1,21 +1,19 @@
 #! /usr/bin/python3
 from sys import maxint
 
-def kadanes(arr):
-    longest = 0
-    prevIndex = 0
-    largest = 0
-    prevEle = 0
+#test = [1, 2, 3, -2, 5]
+#test = [2, -5, 6, 7, 6 -9]
+def not_kadanes(arr):
+    largest = -maxint - 1
+    largestNow = 0
 
     for index, ele in enumerate(arr):
-        if index == 0:
-            prevEle = ele
-        if abs(ele - prevEle) <= 1 and index - prevIndex <= 1:
-            prevEle += ele
-            if prevEle > largest:
-                largest = prevEle
-
-    return largest
+        if index < len(arr) - 1:
+            if (abs(ele - arr[index + 1])):
+                largestNow += ele
+                if largestNow > largest:
+                    largest = largestNow
+    return largest 
 
 def kadanes_c(arr):
     maxNum = -maxint - 1
@@ -51,12 +49,12 @@ def kadanes_c2(arr, size):
 
     return globalMax
 
-test = [1, 2, 3, -2, 5]
+test = [1, 1, 2, 3, -2, 5]
 test2 = [-1, -2, -3, -4]
 
-print('Answer:', kadanes(test))
-print('Answer:', kadanes(test2))
-print('Answer:', kadanes_c2(test, 5))
-print('Answer:', kadanes_c2(test2, 4))
+print('Answer:', not_kadanes(test))
+print('Answer:', not_kadanes(test2))
+#print('Answer:', kadanes_c2(test, 5))
+#print('Answer:', kadanes_c2(test2, 4))
 #kadanes(test)
 #kadanes(test2)
