@@ -8,11 +8,10 @@ def not_kadanes(arr):
     largestNow = 0
 
     for index, ele in enumerate(arr):
-        if index < len(arr) - 1:
-            if (abs(ele - arr[index + 1])):
-                largestNow += ele
-                if largestNow > largest:
-                    largest = largestNow
+        if index < len(arr) - 1 and abs(ele - arr[index + 1]):
+            largestNow += ele
+            if largestNow > largest:
+                largest = largestNow
     return largest 
 
 def kadanes_c(arr):
@@ -51,9 +50,11 @@ def kadanes_c2(arr, size):
 
 test = [1, 1, 2, 3, -2, 5]
 test2 = [-1, -2, -3, -4]
+test3 = [-1, 1, 2, 3, -5, 2]
 
 print('Answer:', not_kadanes(test))
 print('Answer:', not_kadanes(test2))
+print('Answer:', not_kadanes(test3))
 #print('Answer:', kadanes_c2(test, 5))
 #print('Answer:', kadanes_c2(test2, 4))
 #kadanes(test)
