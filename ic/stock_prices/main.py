@@ -35,7 +35,7 @@ def perfect_max_profit(stock_prices):
     max_profit = stock_prices[1] - stock_prices[0]
 
     for index, current_price in enumerate(stock_prices):
-        potential_profit = current_price - min_price 
+        potential_profit = current_price - min_price
 
         max_profit = max(max_profit, potential_profit)
 
